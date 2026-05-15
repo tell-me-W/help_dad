@@ -3,87 +3,109 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>1962년생 아버지 복지 체크판</title>
+    <title>부모님 복지 체크리스트</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <header class="topbar">
       <div>
         <p class="eyebrow">2026년 5월 기준</p>
-        <h1>1962년생 아버지 복지 체크판</h1>
+        <h1>부모님 복지 체크리스트</h1>
       </div>
-      <a class="call" href="tel:129" aria-label="보건복지상담센터 129 전화">129</a>
     </header>
 
     <main>
       <section class="dashboard" aria-labelledby="summary-title">
         <div class="summary">
           <div class="summary-copy">
-            <p class="kicker">올해의 핵심</p>
-            <h2 id="summary-title">국민연금은 바로 확인, 기초연금은 2027년 혜택까지 준비</h2>
-            <p>
-              1962년생은 국민연금 노령연금 지급개시연령이 만 63세입니다.
-              기초연금은 만 65세부터라서 2027년 생일 한 달 전부터 신청 준비를 시작하고,
-              수급이 확정되면 이동통신요금감면도 함께 챙기면 됩니다.
-            </p>
-          </div>
-          <div class="age-card" aria-label="나이 기준">
-            <span class="year">1962</span>
-            <strong>출생</strong>
-            <p>2026년에 생일 전이면 만 63세, 생일 후면 만 64세</p>
+            <h2 id="summary-title">부모님 생년월을 입력하고 맞춤 복지 일정을 확인하세요</h2>
           </div>
         </div>
 
-        <form class="controls" aria-label="맞춤 일정 계산">
-          <label for="birth-month">아버지 생일 월</label>
-          <select id="birth-month">
-            <option value="1">1월</option>
-            <option value="2">2월</option>
-            <option value="3">3월</option>
-            <option value="4">4월</option>
-            <option value="5">5월</option>
-            <option value="6" selected>6월</option>
-            <option value="7">7월</option>
-            <option value="8">8월</option>
-            <option value="9">9월</option>
-            <option value="10">10월</option>
-            <option value="11">11월</option>
-            <option value="12">12월</option>
-          </select>
-          <div class="result" id="personal-note" aria-live="polite"></div>
+        <form class="controls" id="birth-form" aria-label="부모님 맞춤 일정 계산">
+          <div class="field">
+            <label for="dad-year">아버님 생년</label>
+            <select id="dad-year" name="dad-year"></select>
+          </div>
+          <div class="field">
+            <label for="dad-month">아버님 생월</label>
+            <select id="dad-month" name="dad-month"></select>
+          </div>
+          <div class="field">
+            <label for="mom-year">어머님 생년</label>
+            <select id="mom-year" name="mom-year"></select>
+          </div>
+          <div class="field">
+            <label for="mom-month">어머님 생월</label>
+            <select id="mom-month" name="mom-month"></select>
+          </div>
+          <button class="check-button" type="submit">확인하기</button>
+          <div class="result is-hidden" id="personal-note" aria-live="polite"></div>
         </form>
       </section>
 
+      <div class="details is-hidden" id="details-content">
       <section class="grid" aria-label="복지 카드">
         <article class="benefit urgent">
           <div class="icon pension" aria-hidden="true"></div>
           <div>
-            <p class="tag">지금 확인</p>
+            <p class="tag">아빠 · 지금 확인</p>
             <h3>국민연금 노령연금</h3>
-            <p>가입기간 10년 이상이면 1961~1964년생은 만 63세부터 받을 수 있습니다.</p>
+            <p>가입기간이 10년 이상이면 출생연도별 지급개시연령부터 노령연금을 받을 수 있습니다.</p>
             <ul>
               <li>예상연금액과 청구 가능 여부를 국민연금공단에서 확인</li>
               <li>소득이 있으면 일부 감액 가능성 확인</li>
-              <li>생활비 여유가 있으면 연기연금도 비교</li>
+              <li>생활비 사유가 있으면 조기노령연금도 비교</li>
             </ul>
-            <a href="https://www.nps.or.kr/pnsinfo/ntpsklg/getOHAF0056M0.do?menuId=MN24001118" target="_blank" rel="noreferrer">국민연금 기준 보기</a>
+            <a href="https://www.nps.or.kr" target="_blank" rel="noreferrer">국민연금공단 보기</a>
           </div>
         </article>
 
         <article class="benefit">
           <div class="icon basic" aria-hidden="true"></div>
           <div>
-            <p class="tag">2027년 준비</p>
+            <p class="tag">만 65세 준비</p>
             <h3>기초연금</h3>
             <p>만 65세 이상이고 소득인정액 기준을 충족하면 신청할 수 있습니다.</p>
             <ul>
-              <li>1962년생은 2027년 생일 한 달 전부터 신청 준비</li>
+              <li>생일이 있는 달의 전 달부터 신청 준비</li>
               <li>주민센터, 국민연금공단 지사, 복지로에서 신청</li>
-              <li>재산, 소득, 부부 여부에 따라 금액 변동</li>
-              <li>복지로 모의계산으로 신청 전 소득인정액을 미리 가늠</li>
+              <li>부부 가구 소득과 재산에 따라 수급 여부와 금액 변동</li>
+              <li>복지로 모의계산으로 신청 전 소득인정액 가늠</li>
             </ul>
-            <a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?ccfNo=3&cciNo=2&cnpClsNo=1&csmSeq=1963&popMenu=ov" target="_blank" rel="noreferrer">기초연금 기준 보기</a>
-            <a href="https://www.bokjiro.go.kr/ssis-tbu/twatbz/mkclAsis/mkclInsertBspnPage.do" target="_blank" rel="noreferrer">기초연금 모의계산</a>
+            <a href="https://www.bokjiro.go.kr" target="_blank" rel="noreferrer">복지로 보기</a>
+          </div>
+        </article>
+
+        <article class="benefit">
+          <div class="icon health" aria-hidden="true"></div>
+          <div>
+            <p class="tag">엄마 · 건강검진</p>
+            <h3>여성 특화 건강검진</h3>
+            <p>국가건강검진과 암 검진 대상 여부를 확인하고, 유방암과 자궁경부암 검진을 놓치지 않게 챙기세요.</p>
+            <ul>
+              <li>일반건강검진은 출생연도와 해당 연도 기준으로 대상 여부 확인</li>
+              <li>위암, 간암, 대장암, 유방암, 자궁경부암 국가 암 검진 확인</li>
+              <li>60세 이상 여성은 보건소 골다공증 검사 지원 여부 문의</li>
+              <li>부산 구별 노인복지관 순회 의료버스 일정 확인</li>
+            </ul>
+            <a href="https://www.nhis.or.kr" target="_blank" rel="noreferrer">국민건강보험 보기</a>
+          </div>
+        </article>
+
+        <article class="benefit">
+          <div class="icon busan" aria-hidden="true"></div>
+          <div>
+            <p class="tag">부산 생활 혜택</p>
+            <h3>동백전 & 동백패스</h3>
+            <p>부산 지역화폐 동백전과 대중교통 환급 혜택을 함께 쓰면 생활비 부담을 줄일 수 있습니다.</p>
+            <ul>
+              <li>동백전 앱 설치 후 카드 발급</li>
+              <li>장보기, 병원비, 외식비 결제 시 인센티브 적립 여부 확인</li>
+              <li>동백패스는 월 대중교통비 4만 5천 원 초과분 환급</li>
+              <li>환급은 동백전으로 최대 4만 5천 원까지 확인</li>
+            </ul>
+            <a href="https://busanbank.co.kr/ib20/mnu/BHP00001" target="_blank" rel="noreferrer">동백전 보기</a>
           </div>
         </article>
 
@@ -91,44 +113,29 @@
           <div class="icon mobile" aria-hidden="true"></div>
           <div>
             <p class="tag tag-large">기초연금 수급 후</p>
-            <h3>이동통신요금감면</h3>
+            <h3>이동통신요금 감면</h3>
             <p>기초연금 수급자는 이동전화, LTE, 5G 등 통신요금 일부를 감면받을 수 있습니다.</p>
             <ul>
-              <li>기본료 또는 월정액, 음성통화료, 데이터통화료 합산 이용료의 50% 감면</li>
-              <li>감면 적용 한도는 청구 이용료 22,000원까지</li>
-              <li>기초연금 수급 확정 뒤 통신사 고객센터나 대리점에 신청 여부 확인</li>
+              <li>기본료와 통화료, 데이터 이용료 등 청구 이용료 감면 확인</li>
+              <li>감면 적용 한도와 통신사별 신청 방법 확인</li>
+              <li>기초연금 수급 확정 후 통신사 고객센터나 대리점에 문의</li>
             </ul>
-            <a href="https://easylaw.go.kr/CSP/CnpClsMain.laf?popMenu=ov&csmSeq=1963&ccfNo=2&cciNo=3&cnpClsNo=1" target="_blank" rel="noreferrer">통신요금감면 기준 보기</a>
-          </div>
-        </article>
-
-        <article class="benefit">
-          <div class="icon health" aria-hidden="true"></div>
-          <div>
-            <p class="tag">2026년 대상 가능성 높음</p>
-            <h3>국가건강검진과 암검진</h3>
-            <p>2026년은 짝수 해라서 짝수년 출생자인 1962년생은 일반건강검진을 확인해야 합니다.</p>
-            <ul>
-              <li>위암은 만 40세 이상 2년마다</li>
-              <li>대장암은 만 50세 이상 매년</li>
-              <li>폐암은 장기 흡연 고위험군이면 만 54~74세 검진 대상</li>
-            </ul>
-            <a href="https://health.kdca.go.kr/healthinfo/biz/health/gnrlzHealthInfo/gnrlzHealthInfo/gnrlzHealthInfoView.do?cntnts_sn=5296." target="_blank" rel="noreferrer">암검진 기준 보기</a>
+            <a href="https://www.gov.kr" target="_blank" rel="noreferrer">정부24 보기</a>
           </div>
         </article>
 
         <article class="benefit">
           <div class="icon work" aria-hidden="true"></div>
           <div>
-            <p class="tag">일하는 중이면</p>
+            <p class="tag">일하시는 중이면</p>
             <h3>고령자 고용지원 제도</h3>
-            <p>만 60세 이상 근로자는 회사가 계속고용장려금이나 고용지원금을 검토할 수 있습니다.</p>
+            <p>만 60세 이상 근로자는 회사의 계속고용장려금, 고용지원금 대상 여부를 확인할 수 있습니다.</p>
             <ul>
-              <li>정년 연장, 정년 폐지, 재고용 제도 도입 여부 확인</li>
-              <li>인사팀에 계속고용장려금 대상인지 문의</li>
-              <li>구직 중이면 중장년내일센터 상담도 함께 확인</li>
+              <li>정년 연장, 정년 폐지, 재고용 제도 운영 여부 확인</li>
+              <li>인사 담당자에게 계속고용장려금 대상인지 문의</li>
+              <li>구직 중이면 중장년내일센터 상담과 함께 확인</li>
             </ul>
-            <a href="https://ei.work24.go.kr/ei/eim/eg/ei/eiEminsr/retrieveEb0203Info.do" target="_blank" rel="noreferrer">고용지원 기준 보기</a>
+            <a href="https://www.work24.go.kr" target="_blank" rel="noreferrer">고용24 보기</a>
           </div>
         </article>
       </section>
@@ -136,65 +143,67 @@
       <section class="todo" aria-labelledby="todo-title">
         <div>
           <p class="kicker">가족 체크리스트</p>
-          <h2 id="todo-title">이번 달에 할 일 7가지</h2>
+          <h2 id="todo-title">이번 주에 확인할 8가지</h2>
         </div>
         <div class="todo-list">
-          <label><input type="checkbox" /> 국민연금공단에서 예상연금액 조회하기</label>
-          <label><input type="checkbox" /> 국민연금 가입기간 120개월 이상인지 확인하기</label>
-          <label><input type="checkbox" /> 건강보험공단 검진 대상 여부와 검진기관 예약하기</label>
+          <label><input type="checkbox" /> 아빠 국민연금공단에서 예상연금액 조회하기</label>
+          <label><input type="checkbox" /> 아빠 국민연금 가입기간 120개월 이상인지 확인하기</label>
+          <label><input type="checkbox" /> 아빠 기초연금 신청 시작 월 달력에 표시하기</label>
+          <label><input type="checkbox" /> 엄마 국민건강보험 검진 대상 여부 확인하기</label>
+          <label><input type="checkbox" /> 엄마 유방암, 자궁경부암 등 국가 암 검진 예약 가능 기관 찾기</label>
+          <label><input type="checkbox" /> 엄마 보건소 골다공증 검사 지원 여부 전화로 확인하기</label>
+          <label><input type="checkbox" /> 동백전 앱 설치와 동백패스 카드 등록 확인하기</label>
           <label><input type="checkbox" /> 최근 소득, 재산, 부채 자료 모아두기</label>
-          <label><input type="checkbox" /> 2027년 기초연금 신청 시작 월 달력에 표시하기</label>
-          <label><input type="checkbox" /> 기초연금 수급 확정 후 이동통신요금감면 신청할 통신사 고객센터 확인하기</label>
         </div>
       </section>
 
       <section class="prep" aria-labelledby="prep-title">
         <div class="prep-head">
-          <p class="kicker">2027년 기초연금 준비</p>
-          <h2 id="prep-title">생일 한 달 전부터 신청하기 위한 체크리스트</h2>
-          <p>아버지 생일 월에 맞춰 신청 시작 월을 정하고, 서류와 계좌, 통신요금감면까지 한 번에 이어지게 준비하세요.</p>
+          <p class="kicker">부모님 복지 D-Day</p>
+          <h2 id="prep-title">나이별로 챙길 복지 타임라인</h2>
+          <p id="prep-description">생년월을 기준으로 기초연금과 주요 생활 혜택 준비 시점을 계산합니다.</p>
         </div>
         <div class="prep-grid">
           <article>
             <span>1</span>
-            <h3>신청 시작 월 표시</h3>
-            <p>만 65세 생일이 있는 달의 한 달 전부터 신청 준비를 시작합니다.</p>
+            <h3 id="mom-now-title">현재 · 엄마 만 61세</h3>
+            <p>국가건강검진, 암 검진, 동백전, 동백패스, 보건소 골다공증 검사를 확인합니다.</p>
           </article>
           <article>
             <span>2</span>
-            <h3>신청 창구 정하기</h3>
-            <p>주소지 주민센터, 국민연금공단 지사, 복지로 중 가족이 가장 편한 창구를 정합니다.</p>
+            <h3 id="dad-now-title">현재 · 아빠 만 63세</h3>
+            <p>국민연금 청구 가능 시점과 예상연금액, 소득에 따른 감액 가능성을 확인합니다.</p>
           </article>
           <article>
             <span>3</span>
-            <h3>기본 서류 챙기기</h3>
-            <p>신분증, 본인 명의 통장, 배우자 정보, 전월세 계약서 등 소득·재산 확인 자료를 모읍니다.</p>
+            <h3 id="dad-basic-title">2027년 · 아빠 만 65세</h3>
+            <p>기초연금 신청, 통신요금 감면, 경로우대 혜택을 함께 확인합니다.</p>
           </article>
           <article>
             <span>4</span>
-            <h3>소득인정액 점검</h3>
-            <p>근로소득, 국민연금, 금융재산, 자동차, 부동산, 부채를 정리하고 복지로 모의계산으로 상담 전 확인합니다.</p>
+            <h3>가구 합산 체크</h3>
+            <p>기초연금 신청 시 부부 가구 기준 소득인정액과 재산 자료를 점검합니다.</p>
           </article>
           <article>
             <span>5</span>
-            <h3>결정 통지 확인</h3>
-            <p>신청 후 수급 여부와 지급 시작 월, 지급 계좌를 확인하고 가족 달력에 기록합니다.</p>
+            <h3 id="mom-basic-title">2030년 · 엄마 만 65세</h3>
+            <p>엄마 기초연금 신청을 준비하고 지하철 무료 등 경로 혜택을 확인합니다.</p>
           </article>
           <article>
             <span>6</span>
-            <h3>후속 감면 신청</h3>
-            <p>기초연금 수급이 확정되면 통신요금감면, 교통·공공시설 경로우대, 지역 복지를 이어서 확인합니다.</p>
+            <h3>매년 반복</h3>
+            <p>건강검진 대상, 지역화폐 정책, 교통 환급 기준은 매년 바뀔 수 있어 공식 사이트에서 재확인합니다.</p>
           </article>
         </div>
       </section>
 
       <section class="timeline" aria-labelledby="timeline-title">
-        <p class="kicker">나이별 흐름</p>
-        <h2 id="timeline-title">62년생 기준 로드맵</h2>
+        <p class="kicker">한눈에 보는 흐름</p>
+        <h2 id="timeline-title">부모님 복지 로드맵</h2>
         <div class="steps">
-          <div><span>2025~2026</span><strong>만 63세</strong><p>국민연금 청구 가능 시점 확인</p></div>
-          <div><span>2026</span><strong>만 64세</strong><p>건강검진, 암검진, 고용지원 제도 확인</p></div>
-          <div><span>2027</span><strong>만 65세</strong><p>기초연금, 통신요금감면, 경로우대 등 본격 확인</p></div>
+          <div><span>2026</span><strong>지금</strong><p id="timeline-now">아빠 국민연금, 엄마 건강검진과 동백패스 확인</p></div>
+          <div><span id="timeline-dad-year">2027</span><strong>아빠 만 65세</strong><p>기초연금 신청과 부부 가구 소득인정액 점검</p></div>
+          <div><span id="timeline-mom-year">2030</span><strong>엄마 만 65세</strong><p>기초연금 신청, 지하철 무료, 경로 혜택 확인</p></div>
         </div>
       </section>
 
@@ -207,8 +216,10 @@
           <a href="https://www.gov.kr" target="_blank" rel="noreferrer">정부24</a>
           <a href="https://www.nhis.or.kr" target="_blank" rel="noreferrer">국민건강보험</a>
           <a href="https://www.work24.go.kr" target="_blank" rel="noreferrer">고용24</a>
+          <a href="https://www.busan.go.kr" target="_blank" rel="noreferrer">부산광역시</a>
         </div>
       </section>
+      </div>
     </main>
 
     <script src="./script.js"></script>

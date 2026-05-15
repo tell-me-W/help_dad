@@ -113,7 +113,7 @@ label {
 
 .summary {
   display: grid;
-  grid-template-columns: 1fr minmax(220px, 300px);
+  grid-template-columns: 1fr;
   gap: 22px;
   align-items: stretch;
 }
@@ -132,6 +132,10 @@ label {
 
 .summary-copy {
   padding: clamp(24px, 5vw, 46px);
+}
+
+.summary-copy h2 {
+  margin-bottom: 0;
 }
 
 .summary-copy p:last-child,
@@ -154,7 +158,7 @@ label {
 }
 
 .age-card .year {
-  font-size: 4.2rem;
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
   font-weight: 900;
   line-height: 1;
 }
@@ -170,15 +174,21 @@ label {
 
 .controls {
   display: grid;
-  grid-template-columns: auto minmax(120px, 180px) 1fr;
+  grid-template-columns: repeat(4, minmax(120px, 1fr)) auto;
   gap: 14px;
-  align-items: center;
+  align-items: end;
   padding: 18px;
 }
 
 .controls label {
+  display: block;
+  margin-bottom: 8px;
   color: var(--ink);
   font-weight: 800;
+}
+
+.field {
+  min-width: 0;
 }
 
 select {
@@ -192,7 +202,26 @@ select {
   padding: 0 12px;
 }
 
+.check-button {
+  min-height: 44px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--green);
+  color: white;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 900;
+  padding: 0 18px;
+  white-space: nowrap;
+}
+
+.check-button:hover,
+.check-button:focus-visible {
+  background: #174938;
+}
+
 .result {
+  grid-column: 1 / -1;
   min-height: 44px;
   border-radius: 8px;
   background: var(--mint);
@@ -200,6 +229,27 @@ select {
   font-weight: 800;
   line-height: 1.45;
   padding: 11px 14px;
+}
+
+.result strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #153c31;
+}
+
+.result ul {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding-left: 20px;
+}
+
+.result li {
+  color: #153c31;
+}
+
+.is-hidden {
+  display: none;
 }
 
 .grid {
@@ -338,6 +388,28 @@ select {
   background: #5a4d86;
 }
 
+.icon.busan {
+  background: #d9e8f7;
+}
+
+.icon.busan::before {
+  inset: 18px 10px 16px;
+  border-color: var(--navy);
+  border-radius: 8px;
+}
+
+.icon.busan::after {
+  inset: auto 13px 12px;
+  width: 32px;
+  height: 8px;
+  border: 0;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 7px 4px, white 0 3px, transparent 3px),
+    radial-gradient(circle at 25px 4px, white 0 3px, transparent 3px),
+    var(--navy);
+}
+
 .todo,
 .prep,
 .timeline,
@@ -466,7 +538,12 @@ input[type="checkbox"] {
   }
 
   .controls {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .check-button,
+  .result {
+    grid-column: 1 / -1;
   }
 }
 
@@ -489,6 +566,10 @@ input[type="checkbox"] {
   .benefit {
     grid-template-columns: 1fr;
     padding: 20px;
+  }
+
+  .controls {
+    grid-template-columns: 1fr;
   }
 
   .summary-copy,
